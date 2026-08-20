@@ -21,7 +21,6 @@ extern "C" void app_main() {
     // 初始化 u8g2-idf-adapter
     u8g2_idf_adapter_t context;
     u8g2_idf_adapter_config_t config = U8G2_IDF_ADAPTER_CONFIG_DEFAULT_SPI;
-    u8g2_idf_adapter_config_init_spi(&config);
     config.bus.spi.mosi = VFD_MOSI;
     config.bus.spi.clk = VFD_CLOCK;
     config.bus.spi.cs = VFD_CS;
@@ -79,7 +78,6 @@ extern "C" void app_main() {
         // 绘制帧率
         char fps_buf[32];
         snprintf(fps_buf, sizeof(fps_buf), "FPS: %.3f", fps);
-        u8g2_DrawUTF8(&context.u8g2, 10, 20, fps_buf);
         u8g2_DrawUTF8(&context.u8g2, 10, 20, fps_buf);
 
         // 绘制开机时间
